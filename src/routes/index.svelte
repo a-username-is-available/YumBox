@@ -1,2 +1,5 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<div class='bg-lime-300 h-screen'>
+    <p class='text-xs'>
+        hi this is the grass pls replace this with some actual pixel art thanks
+    </p>
+</div>
