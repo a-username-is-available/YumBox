@@ -15,8 +15,14 @@ module.exports = {
         secondary: '#eab308',
         'secondary-light': '#fefce8',
         'secondary-dark': '#a16207'
+      },
+      gridTemplateRows: {
+        '30': 'repeat(30, 32px)',
+      },
+      gridTemplateColumns: {
+        '30': 'repeat(30, 32px)',
       }
     },
-  },
-  plugins: [],
+    plugins: [],
+  }
 }
