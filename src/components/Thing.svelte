@@ -4,7 +4,7 @@
                name: string,
                level: number
     const meta = import(`../assets/thing/${name}.json`)
-    meta.then(v => console.log(v.levels[0]))
+    // meta.then(v => console.log(v.levels[0]))
     const thing = meta.then(v => import(`../assets/thing/${v.levels[level].src}.png`))
 
     function openMenu() {
