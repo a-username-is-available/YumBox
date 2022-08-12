@@ -1,6 +1,7 @@
 {
     "levels": [
         {
+            "cost": 5,
             "earnings": 1,
             "src": "grass"
         }
