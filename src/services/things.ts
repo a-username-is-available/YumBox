@@ -15,5 +15,5 @@ export const things: Writable<Thing[]> = writable([{
     y: 20,
 }])
 
-export type ThingResult = 'ChangePosition'
-                        | 'Delete'
+export type ThingResult = 'move'
+                        | 'delete'

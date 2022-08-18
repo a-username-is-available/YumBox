@@ -1,12 +1,19 @@
 <script lang='ts'>
     import { createEventDispatcher } from 'svelte'
     import { scale } from 'svelte/transition'
+    import { mx, my } from '../services/util'
     import type { ThingResult } from '../services/things'
     const dispatch = createEventDispatcher()
+    const pass = (msg: ThingResult, details?: object) => dispatch('message', { type: msg, ...details})
 
-    function passResult(res: ThingResult) {
-        dispatch(res)
+    const mousePosToCoord = (val: number) => Math.floor(val / 32)
+    let isInMovingState = false
+    let interval
+    function move() {
+        isInMovingState = true
+        interval = setInterval(() => dispatch('move', { x: mousePosToCoord($mx), y: mousePosToCoord($my) }))
     }
+
 </script>
 
 <svelte:head>
@@ -15,9 +22,9 @@
 
 <div class='p-2 pr-4 w-fit rounded bg-dark text-white font-light flex gap-1 flex-col' 
      transition:scale='{{ duration: 200 }}'>
-    <button class='flex gap-1'>
+    <button class='flex gap-1' on:click={move}>
         <span class='material-symbols-outlined'>Open_With</span>
-        Move
+        Move x:{$mx / 32} y:{$my / 32}
     </button>
 
     <button class='flex gap-1'>

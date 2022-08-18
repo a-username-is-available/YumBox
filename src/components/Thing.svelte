@@ -13,12 +13,16 @@
     function toggleMenu() {
         isMenuOpen = !isMenuOpen
     }
+
+    function changeLocation(e: {x: number; y: number}) {
+        [x, y] = [e.x, e.y]
+    }
 </script>
 
 <span style='grid-column: {x}; grid-row: {y}'>
     {#await thing then thingImg}
         <!-- svelte-ignore a11y-missing-attribute -->
-        <img src={thingImg.default} class='w-8 scale-crisp' on:click={toggleMenu}>
+        <img src={thingImg.default} class='w-8 scale-crisp' on:click={toggleMenu} on:message={changeLocation}>
     {/await}
     
 </span>
