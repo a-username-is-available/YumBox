@@ -14,6 +14,10 @@
         isMenuOpen = !isMenuOpen
     }
 
+    function dispatchMessageToFunctions(e: any) {
+        console.log(e.type)
+    }
+
     function changeLocation(e: {x: number; y: number}) {
         [x, y] = [e.x, e.y]
     }
@@ -22,13 +26,13 @@
 <span style='grid-column: {x}; grid-row: {y}'>
     {#await thing then thingImg}
         <!-- svelte-ignore a11y-missing-attribute -->
-        <img src={thingImg.default} class='w-8 scale-crisp' on:click={toggleMenu} on:message={changeLocation}>
+        <img src={thingImg.default} class='w-8 scale-crisp' on:click={toggleMenu}>
     {/await}
     
 </span>
 
 {#if isMenuOpen}
     <span style='transform: translate({x * 32 + 5}px, {(y - 3) * 32}px);'>
-        <Menu/>
+        <Menu on:message={dispatchMessageToFunctions}/>
     </span>
 {/if}

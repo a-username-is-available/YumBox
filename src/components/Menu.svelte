@@ -4,14 +4,19 @@
     import { mx, my } from '../services/util'
     import type { ThingResult } from '../services/things'
     const dispatch = createEventDispatcher()
-    const pass = (msg: ThingResult, details?: object) => dispatch('message', { type: msg, ...details})
+    const pass = (msg: ThingResult, details?: object) =>  dispatch('message', { type: msg, ...details})
 
     const mousePosToCoord = (val: number) => Math.floor(val / 32)
-    let isInMovingState = false
-    let interval
+    let interval: NodeJS.Timer
     function move() {
-        isInMovingState = true
-        interval = setInterval(() => dispatch('move', { x: mousePosToCoord($mx), y: mousePosToCoord($my) }))
+        clearInterval(interval)
+        console.log('before')
+        interval = setInterval(() => pass('move', { x: mousePosToCoord($mx), y: mousePosToCoord($my) }), 100)
+        console.log('after')
+    }
+
+    function confirmMove() {
+        clearInterval(interval)
     }
 
 </script>
@@ -21,10 +26,10 @@
 </svelte:head>
 
 <div class='p-2 pr-4 w-fit rounded bg-dark text-white font-light flex gap-1 flex-col' 
-     transition:scale='{{ duration: 200 }}'>
+     transition:scale='{{ duration: 200 }}' on:click={confirmMove}>
     <button class='flex gap-1' on:click={move}>
         <span class='material-symbols-outlined'>Open_With</span>
-        Move x:{$mx / 32} y:{$my / 32}
+        Move
     </button>
 
     <button class='flex gap-1'>
