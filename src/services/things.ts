@@ -7,6 +7,7 @@ export interface Thing {
     x: number
     y: number
 }
+
 export const things: Writable<Thing[]> = writable([{
     name: 'grass',
     earnings: 10, // make this read from the json file and cache it here

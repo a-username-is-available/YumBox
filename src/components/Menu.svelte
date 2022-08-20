@@ -2,22 +2,22 @@
     import { createEventDispatcher } from 'svelte'
     import { scale } from 'svelte/transition'
     import { mx, my } from '../services/util'
+    import { onDestroy } from 'svelte'
     import type { ThingResult } from '../services/things'
-    const dispatch = createEventDispatcher()
-    const pass = (msg: ThingResult, details?: object) =>  dispatch('message', { type: msg, ...details})
+    const dispatch: (msg: ThingResult, details?: object) => void = createEventDispatcher()
 
-    const mousePosToCoord = (val: number) => Math.floor(val / 32)
-    let interval: NodeJS.Timer
-    function move() {
-        clearInterval(interval)
-        console.log('before')
-        interval = setInterval(() => pass('move', { x: mousePosToCoord($mx), y: mousePosToCoord($my) }), 100)
-        console.log('after')
-    }
+    const mousePosToCoord = (val: number) => Math.ceil(val / 32)
+
+    let interval: NodeJS.Timer | undefined
+
+    const move = () => interval = setInterval(() => dispatch('move', { x: mousePosToCoord($mx), y: mousePosToCoord($my) - 1 }), 100)
 
     function confirmMove() {
-        clearInterval(interval)
+        clearInterval(interval ?? undefined)
+        interval = undefined
     }
+
+    onDestroy(confirmMove)
 
 </script>
 
@@ -26,7 +26,7 @@
 </svelte:head>
 
 <div class='p-2 pr-4 w-fit rounded bg-dark text-white font-light flex gap-1 flex-col' 
-     transition:scale='{{ duration: 200 }}' on:click={confirmMove}>
+     transition:scale='{{ duration: 200 }}'>
     <button class='flex gap-1' on:click={move}>
         <span class='material-symbols-outlined'>Open_With</span>
         Move

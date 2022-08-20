@@ -6,20 +6,17 @@
                name: string,
                level: number
     const meta = import(`../assets/thing/${name}.json`)
-    // meta.then(v => console.log(v.levels[0]))
     const thing = meta.then(v => import(`../assets/thing/${v.levels[level].src}.png`))
+
+    $: console.log(x, y)
 
     let isMenuOpen = false
     function toggleMenu() {
         isMenuOpen = !isMenuOpen
     }
 
-    function dispatchMessageToFunctions(e: any) {
-        console.log(e.type)
-    }
-
-    function changeLocation(e: {x: number; y: number}) {
-        [x, y] = [e.x, e.y]
+    function changeLocation(e: CustomEvent<any>) {
+        [x, y] = [e.detail.x, e.detail.y]
     }
 </script>
 
@@ -33,6 +30,6 @@
 
 {#if isMenuOpen}
     <span style='transform: translate({x * 32 + 5}px, {(y - 3) * 32}px);'>
-        <Menu on:message={dispatchMessageToFunctions}/>
+        <Menu on:move={changeLocation}/>
     </span>
 {/if}
