@@ -5,11 +5,15 @@
 
     import StatSection from './StatSection.svelte'
     import StatPanel from './StatPanel.svelte'
+    import Inventory from './Inventory.svelte'
+
     import { coins, credits, coinsPerMinute } from '../services/stats'
     import { onDestroy } from 'svelte'
 
     const interval = setInterval(() => $coins += $coinsPerMinute, 60 * 1000)
     onDestroy(() => clearInterval(interval))
+
+    let showingInventory = false
 </script>
 
 <div class='p-1.5 bg-black text-black flex flex-row items-center text-sm gap-3 w-screen'>
@@ -30,6 +34,10 @@
     </span>
 
     <StatSection>
-        <img class='h-8 w-8 bg-white rounded p-1 scale-crisp' src={inv} alt="inventory">
+        <img on:click='{() => showingInventory = !showingInventory}' class='h-8 w-8 bg-white rounded p-1 scale-crisp' src={inv} alt="inventory">
     </StatSection>
 </div>
+
+{#if showingInventory}
+    <Inventory/>
+{/if}
