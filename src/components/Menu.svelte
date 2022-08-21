@@ -11,6 +11,7 @@
     let interval: NodeJS.Timer | undefined
 
     const move = () => interval = setInterval(() => dispatch('move', { x: mousePosToCoord($mx), y: mousePosToCoord($my) - 1 }), 100)
+    const del = () => dispatch('delete')
 
     function confirmMove() {
         clearInterval(interval ?? undefined)
@@ -37,7 +38,7 @@
         Statistics
     </button>
 
-    <button class='flex gap-1 text-red-500'>
+    <button class='flex gap-1 text-red-500' on:click={del}>
         <span class='material-symbols-outlined'>Delete</span>
         Delete
     </button>
