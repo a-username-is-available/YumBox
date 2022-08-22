@@ -18,3 +18,10 @@ export const things: Writable<Thing[]> = writable([{
 
 export type ThingResult = 'move'
                         | 'delete'
+
+export type InvThing = {
+    name: string
+    level: number
+}
+
+export const inventory: Writable<InvThing[]> = writable([{name: 'grass', level: 0}, {name: 'grass', level: 0},{name: 'grass', level: 0}])
