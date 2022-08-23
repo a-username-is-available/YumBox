@@ -1,7 +1,7 @@
 <script>
     import Overlay from './Overlay.svelte'
     import Panel from './Panel.svelte'
-    import Thing from './InvThing.svelte';
+    import Thing from './InvThing.svelte'
 
     import { inventory } from '../services/things'
 </script>

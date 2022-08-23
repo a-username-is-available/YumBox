@@ -16,7 +16,7 @@
     const del = () => {
         const indexOfThisElement = $things.findIndex(e => e.x == x && e.y == y)
 
-        $things = $things.splice(indexOfThisElement, indexOfThisElement + 1)
+        $things = $things.splice(indexOfThisElement, 1)
     }
 </script>
 
