@@ -5,11 +5,12 @@
 
     import StatSection from './StatSection.svelte'
     import StatPanel from './StatPanel.svelte'
-    import Inventory from './Inventory.svelte'
-
+    
+    import { createEventDispatcher } from 'svelte'
     import { coins, credits, coinsPerMinute } from '../services/stats'
     import { onDestroy } from 'svelte'
 
+    const dispatch = createEventDispatcher()
     const interval = setInterval(() => $coins += $coinsPerMinute, 60 * 1000)
     onDestroy(() => clearInterval(interval))
 
@@ -34,10 +35,6 @@
     </span>
 
     <StatSection>
-        <img on:click='{() => showingInventory = !showingInventory}' class='h-8 w-8 bg-white rounded p-1 scale-crisp' src={inv} alt="inventory">
+        <img on:click='{() => dispatch('showInventory')}' class='h-8 w-8 bg-white rounded p-1 scale-crisp' src={inv} alt="inventory">
     </StatSection>
 </div>
-
-{#if showingInventory}
-    <Inventory/>
-{/if}

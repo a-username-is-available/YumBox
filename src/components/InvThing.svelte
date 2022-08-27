@@ -1,5 +1,8 @@
 <script lang='ts'>
     import { inventory } from '../services/things'
+    import { createEventDispatcher } from 'svelte'
+
+    const dispatch = createEventDispatcher()
 
     export let name: string,
                level: number
@@ -10,8 +13,10 @@
         // we don't need to know which element exactly it is
         const indexOfThisElement = $inventory.findIndex(e => e.name === name && e.level === level)
 
-        $inventory.splice(0)
+        const removedElement = $inventory.splice(indexOfThisElement, 1)
         $inventory = $inventory
+
+        dispatch('place', removedElement)
     }
 </script>
 
