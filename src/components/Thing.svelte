@@ -1,13 +1,13 @@
 <script lang='ts'>
     import Menu from './Menu.svelte'
-    import { things } from '../services/things'
+    import { things, type ThingData } from '../services/things'
+    // import { readFile } from 'fs/promises'
 
     export let x: number,
                y: number,
                name: string,
                level: number
-    const meta = import(`../assets/thing/${name}.json`)
-    const thing = meta.then(v => import(`../assets/thing/${v.levels[level].src}.png`))
+    let importMeta = import(`../assets/thing/${name}.json`)
 
     let isMenuOpen = false
     const toggleMenu = () => isMenuOpen = !isMenuOpen
@@ -16,16 +16,17 @@
     const del = () => {
         const indexOfThisElement = $things.findIndex(e => e.x == x && e.y == y)
 
-        $things = $things.splice(indexOfThisElement, 1)
+        $things.splice(indexOfThisElement, 1)
+        $things = $things // tell svelte this need to be updated
     }
 </script>
 
 <span style='grid-column: {x}; grid-row: {y}'>
-    {#await thing then thingImg}
-        <!-- svelte-ignore a11y-missing-attribute -->
-        <img src={thingImg.default} class='w-8 scale-crisp' on:click={toggleMenu}>
+    {#await importMeta}
+        Loading...
+    {:then meta}
+        <img src='src/assets/thing/{meta?.levels?.[level]?.src}.png' class='w-8 scale-crisp' alt='{name}: lvl. {level}' on:click={toggleMenu}>
     {/await}
-    
 </span>
 
 {#if isMenuOpen}

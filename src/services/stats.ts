@@ -1,11 +1,12 @@
-import { derived, writable, type Writable } from "svelte/store";
-import { things, type Thing } from "./things";
+import { derived, writable } from "svelte/store"
+import { things, thingData, type ThingData } from "./things"
 
 export const coins = writable(0)
 export const credits = writable(0)
 
-export const coinsPerMinute = derived(things, $things => {
+export const coinsPerMinute = derived(things, async $things => {
+    const data = await thingData()
     return $things
-        .map(t => t.earnings)
-        .reduce((acc, cur) => acc + cur, 0)
-})
+        .map(thing => data[thing.name].levels[thing.level].earnings)
+        .reduce((acc, curr) => acc + curr, 0)
+}, Promise.resolve(0))

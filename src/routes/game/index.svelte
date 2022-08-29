@@ -2,6 +2,7 @@
     import { things } from '../../services/things'
     import { mx, my } from '../../services/util'
     import Thing from '../../components/Thing.svelte'
+    import { thingData } from '../../services/things'
 
     import StatsBar from '../../components/StatsBar.svelte'
     import Overlay from '../../components/Overlay.svelte'
@@ -14,7 +15,7 @@
     const updateLocation = (e: { clientX: number; clientY: number; }) => [$mx, $my] = [e.clientX, e.clientY]
 
     const forward = (e: any) => {
-        console.log(e.detail)
+        $things = [...$things, { ...e, x: 0, y: 0 }]
     }
 </script>
 

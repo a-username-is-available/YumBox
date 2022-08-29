@@ -11,10 +11,8 @@
     import { onDestroy } from 'svelte'
 
     const dispatch = createEventDispatcher()
-    const interval = setInterval(() => $coins += $coinsPerMinute, 60 * 1000)
+    const interval = setInterval(async () => $coins += (await $coinsPerMinute), 60 * 1000)
     onDestroy(() => clearInterval(interval))
-
-    let showingInventory = false
 </script>
 
 <div class='p-1.5 bg-black text-black flex flex-row items-center text-sm gap-3 w-screen'>
@@ -25,7 +23,14 @@
         <StatSection>
             <img src={coin} alt="coin" class='scale-crisp h-5 w-5'>
             <StatPanel>Coins: {$coins}</StatPanel>
-            <StatPanel>Coins/Minute: {$coinsPerMinute}</StatPanel>
+            <StatPanel>
+                Coins/Minute: 
+                {#await $coinsPerMinute} 
+                    Loading...
+                {:then coinsPerMinuteResolved} 
+                    {coinsPerMinuteResolved}
+                {/await}
+            </StatPanel>
         </StatSection>
         
         <StatSection>
