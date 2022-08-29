@@ -1,5 +1,5 @@
 import { derived, writable } from "svelte/store"
-import { things, thingData, type ThingData } from "./things"
+import { things, thingData } from "./things"
 
 export const coins = writable(0)
 export const credits = writable(0)

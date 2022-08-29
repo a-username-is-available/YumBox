@@ -40,13 +40,6 @@ export const thingData = async () => {
     for (let name of thingsList) {
         thingDataMemo[name] = await import(`../assets/thing/${name}.json`)
     }
-
-    // Promise.all(thingsList.map(async name => [name, (await import(`../assets/thing/${name}.json`)).default] as [string, ThingData]))
-    //     .then(stuff => {
-    //         stuff.forEach(([name, data]: [string, ThingData]) => thingDataMemo[name] = data)
-    //     })
-    // thingsList.forEach(async name => {
-    //     thingDataMemo[name] = (await import(`../assets/thing/${name}.json`)).default
-    // })
+ 
     return thingDataMemo
 }
