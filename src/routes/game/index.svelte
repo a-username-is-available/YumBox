@@ -6,22 +6,38 @@
 
     import StatsBar from '../../components/StatsBar.svelte'
     import Overlay from '../../components/Overlay.svelte'
-    import Panel from '../../components/InvPanel.svelte'
+    import Panel from '../../components/Panel.svelte'
+    import InvPanel from '../../components/InvPanel.svelte'
     import InvThing from '../../components/InvThing.svelte'
     import { inventory } from '../../services/things'
 
     let hasInventory = false
+    const showInventory = () => { hasInventory = !hasInventory; hasShop = false }
+    let hasShop = false
+    const showShop = () => { hasShop = !hasShop; hasInventory = false }
 
     const updateLocation = (e: { clientX: number; clientY: number; }) => [$mx, $my] = [e.clientX, e.clientY]
 
-    const forward = (e: any) => {
-        $things = [...$things, { ...e, x: 0, y: 0 }]
-    }
+    const forward = (e: any) => $things = [...$things, { ...e.detail[0], x: 0, y: 0 }]
 </script>
 
 <header>
-    <StatsBar on:showInventory='{() => hasInventory = !hasInventory}'/>
+    <StatsBar on:showInventory={showInventory} on:showShop={showShop}/>
 </header>
+
+{#if hasShop}
+    <Overlay>
+        <span class='flex flex-col gap-3'>
+            <h1 class='font-bold text-xl'>Shop</h1>
+            <Panel>
+                <span class="flex p-2">
+                    <div class="bg-red-100 p-10"></div>
+                    <span class="flex flex-col">hi</span>
+                </span>
+            </Panel>
+        </span>
+    </Overlay>
+{/if}
 
 {#if hasInventory}
     <Overlay>
@@ -30,9 +46,9 @@
             <div class='flex gap-1'>
                 {#each $inventory as item}
                     <span class='w-8 h-8'>
-                        <Panel>
+                        <InvPanel>
                             <InvThing name={item.name} level={item.level} on:place={forward}/>
-                        </Panel>
+                        </InvPanel>
                     </span>
                 {/each}
             </div>

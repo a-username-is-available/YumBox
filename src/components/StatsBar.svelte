@@ -4,7 +4,7 @@
     import inv from '../assets/inv.png'
 
     import StatSection from './StatSection.svelte'
-    import StatPanel from './StatPanel.svelte'
+    import StatPanel from './Panel.svelte'
     
     import { createEventDispatcher } from 'svelte'
     import { coins, credits, coinsPerMinute } from '../services/stats'
@@ -38,6 +38,10 @@
             <StatPanel>Credits: {$credits}</StatPanel>
         </StatSection>
     </span>
+
+    <StatSection>
+        <img on:click='{() => dispatch('showShop')}' class='h-8 w-8 bg-white rounded p-1 scale-crisp' alt="shop">
+    </StatSection>
 
     <StatSection>
         <img on:click='{() => dispatch('showInventory')}' class='h-8 w-8 bg-white rounded p-1 scale-crisp' src={inv} alt="inventory">
