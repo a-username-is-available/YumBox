@@ -1,4 +1,5 @@
 {
+    "description": "Just some grass, gives 1 coin per minute",
     "levels": [
         {
             "cost": 5,

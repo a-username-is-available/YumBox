@@ -26,6 +26,7 @@ export type InvThing = {
 export const inventory: Writable<InvThing[]> = writable([{name: 'grass', level: 0}, {name: 'grass', level: 0},{name: 'grass', level: 0}])
 
 export interface ThingData {
+    description: string
     levels: {
         cost: number
         earnings: number
