@@ -35,10 +35,11 @@
                 {:then resolvedThingData}           
                     {#each Object.entries(resolvedThingData) as [thingName, aThing]}
                         <span class="flex p-2 gap-3">
-                            <img src='src/assets/thing/{aThing.levels[0].src}.png' alt='a thing' class='scale-crisp w-16 h-16'>
+                            <img src='src/assets/thing/{aThing.levels[0].src}.png' alt='a thing' class='scale-crisp w-20 h-20'>
                             <span class="flex flex-col text-black">
                                 <h1 class='font-bold text-lg'>{thingName[0].toUpperCase() + thingName.slice(1)}</h1>
                                 <p>{aThing.description}</p>
+                                <button class='bg-primary rounded p-1 px-2 inline w-fit'>Buy - {aThing.levels[0].cost} coins</button>
                             </span>
                         </span>
                     {/each}
