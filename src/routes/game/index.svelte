@@ -30,9 +30,12 @@
         <span class='flex flex-col gap-3'>
             <h1 class='font-bold text-xl'>Shop</h1>
             <Panel>
-                <span class="flex p-2">
+                <span class="flex p-2 gap-3">
                     <div class="bg-red-100 p-10"></div>
-                    <span class="flex flex-col">hi</span>
+                    <span class="flex flex-col text-black">
+                        <h1 class='font-bold text-lg'>Example Item</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum unde nesciunt non odio natus debitis vero nisi rem illum accusantium obcaecati.</p>
+                    </span>
                 </span>
             </Panel>
         </span>
