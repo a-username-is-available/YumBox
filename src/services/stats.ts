@@ -1,7 +1,7 @@
 import { derived, writable } from "svelte/store"
 import { things, thingData } from "./things"
 
-export const coins = writable(0)
+export const coins = writable(5)
 export const credits = writable(0)
 
 export const coinsPerMinute = derived(things, async $things => {

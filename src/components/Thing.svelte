@@ -30,7 +30,8 @@
 </span>
 
 {#if isMenuOpen}
-    <span style='transform: translate({x * 32 + 5}px, {(y - 3) * 32}px);'>
+<!-- style='transform: translate({x * 32 + 5}px, {(y - 3) * 32}px);' -->
+    <span style='transform: translate({(x - (x > 24 ? 4.5 : 0)) * 32}px, {(y - (y < 5 ? 1 : 3)) * 32}px);'>
         <Menu on:move={move}
               on:delete={del}/>
     </span>

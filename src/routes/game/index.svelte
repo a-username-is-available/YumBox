@@ -1,6 +1,7 @@
 <script lang='ts'>
-    import { things } from '../../services/things'
+    import { things, type ThingData } from '../../services/things'
     import { mx, my } from '../../services/util'
+    import { coins } from '../../services/stats'
     import Thing from '../../components/Thing.svelte'
     import { thingData } from '../../services/things'
 
@@ -19,6 +20,13 @@
     const updateLocation = (e: { clientX: number; clientY: number; }) => [$mx, $my] = [e.clientX, e.clientY]
 
     const forward = (e: any) => $things = [...$things, { ...e.detail[0], x: 0, y: 0 }]
+
+    const buyItem = (thing: ThingData, name: string) => {
+        const { cost } = thing.levels[0]
+        if ($coins - cost < 0) return
+        $coins -= cost
+        $inventory.push({ name, level: 0 })
+    }
 </script>
 
 <header>
@@ -39,7 +47,9 @@
                             <span class="flex flex-col text-black">
                                 <h1 class='font-bold text-lg'>{thingName[0].toUpperCase() + thingName.slice(1)}</h1>
                                 <p>{aThing.description}</p>
-                                <button class='bg-primary rounded p-1 px-2 inline w-fit'>Buy - {aThing.levels[0].cost} coins</button>
+                                <button class='bg-primary rounded p-1 px-2 inline w-fit' on:click={() => buyItem(aThing, thingName)}>
+                                    Buy - {aThing.levels[0].cost} coins
+                                </button>
                             </span>
                         </span>
                     {/each}
