@@ -8,12 +8,7 @@ export interface Thing {
     y: number
 }
 
-export const things: Writable<Thing[]> = writable([{
-    name: 'grass',
-    level: 0,
-    x: 5,
-    y: 20,
-}])
+export const things: Writable<Thing[]> = writable([]) // could do the array of arrays thingy but im too lazy
 
 export type ThingResult = 'move'
                         | 'delete'

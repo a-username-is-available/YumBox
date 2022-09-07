@@ -12,7 +12,14 @@
     let isMenuOpen = false
     const toggleMenu = () => isMenuOpen = !isMenuOpen
 
-    const move = (e: CustomEvent<any>) => [x, y] = [e.detail.x, e.detail.y]
+    const move = (e: CustomEvent<any>) => {
+        const squareThing = $things.find(thing => thing.x === e.detail.x && thing.y === e.detail.y)
+        if (squareThing) return
+        let thisThing = $things.find(thing => thing.x === x && thing.y === y)
+        if (thisThing) [thisThing.x, thisThing.y] = [e.detail.x, e.detail.y];
+        [x, y] = [e.detail.x, e.detail.y]
+    }
+
     const del = () => {
         const indexOfThisElement = $things.findIndex(e => e.x == x && e.y == y)
 
