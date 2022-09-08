@@ -9,6 +9,8 @@ export interface Thing {
 }
 
 export const things: Writable<Thing[]> = writable([]) // could do the array of arrays thingy but im too lazy
+                                                      // someone please make a pr to fix this
+                                                      // the code will be so slowwwwww
 
 export type ThingResult = 'move'
                         | 'delete'

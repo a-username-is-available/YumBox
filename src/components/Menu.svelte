@@ -35,7 +35,7 @@
 
     <button class='flex gap-1'>
         <span class='material-symbols-outlined'>Bar_Chart</span>
-        Statistics
+        Lv. Up
     </button>
 
     <button class='flex gap-1 text-red-500' on:click={del}>

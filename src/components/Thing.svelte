@@ -1,7 +1,6 @@
 <script lang='ts'>
     import Menu from './Menu.svelte'
     import { things, type ThingData } from '../services/things'
-    // import { readFile } from 'fs/promises'
 
     export let x: number,
                y: number,
@@ -28,7 +27,7 @@
     }
 </script>
 
-<span style='grid-column: {x}; grid-row: {y}'>
+<span style='grid-column: {x + 1}; grid-row: {y + 1}'>
     {#await importMeta}
         Loading...
     {:then meta}
