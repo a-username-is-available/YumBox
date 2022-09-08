@@ -19,7 +19,14 @@
 
     const updateLocation = (e: { clientX: number; clientY: number; }) => [$mx, $my] = [e.clientX, e.clientY]
 
-    const forward = (e: any) => $things = [...$things, { ...e.detail[0], x: 0, y: 0 }]
+    const forward = (e: any) => {
+        for (let y = 0; y < 30; y++) {
+            for (let x = 0; x < 30; x++) {
+                const thing = $things.find(thing => thing.x === x && thing.y === y)
+                if (!thing) return $things = [...$things, { ...e.detail[0], x, y }]
+            }  
+        }
+    }
 
     const buyItem = (thing: ThingData, name: string) => {
         const { cost } = thing.levels[0]
