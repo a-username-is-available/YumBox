@@ -71,7 +71,7 @@
         <span class='flex flex-col gap-3'>
             <h1 class='font-bold text-xl'>Inventory</h1>
             <div class='flex flex-wrap gap-1'>
-                {#each $inventory as item}
+                {#each $inventory as item (item.id)}
                     <span class='w-8 h-8'>
                         <InvPanel>
                             <InvThing {...item} on:place={forward}/>

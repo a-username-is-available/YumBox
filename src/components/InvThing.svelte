@@ -14,8 +14,8 @@
         const indexOfThisElement = $inventory.findIndex(e => e.id === id)
 
         const removedElement = $inventory.splice(indexOfThisElement, 1)
-        setTimeout(() => $inventory = $inventory, 0)
-
+        $inventory = $inventory
+        
         dispatch('place', removedElement)
     }
 </script>

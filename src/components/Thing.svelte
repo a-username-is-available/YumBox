@@ -1,6 +1,6 @@
 <script lang='ts'>
     import Menu from './Menu.svelte'
-    import { things, type ThingData } from '../services/things'
+    import { things } from '../services/things'
 
     export let x: number,
                y: number,
