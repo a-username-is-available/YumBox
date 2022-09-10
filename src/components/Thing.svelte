@@ -6,7 +6,7 @@
                y: number,
                name: string,
                level: number
-    let importMeta = import(`../routes/assets/thing/${name}.json`)
+    let importMeta = import(`../assets/thing/${name}.json`)
 
     let isMenuOpen = false
     const toggleMenu = () => isMenuOpen = !isMenuOpen
@@ -31,7 +31,7 @@
     {#await importMeta}
         Loading...
     {:then meta}
-        <img src='src/routes/assets/thing/{meta?.levels?.[level]?.src}.png' class='w-8 scale-crisp' alt='{name}: lvl. {level}' on:click={toggleMenu}>
+        <img src='src/assets/thing/{meta?.levels?.[level]?.src}.png' class='w-8 scale-crisp' alt='{name}: lvl. {level}' on:click={toggleMenu}>
     {/await}
 </span>
 
