@@ -7,7 +7,7 @@
     export let name: string,
                level: number,
                id: number
-    const importMeta = import(`../assets/thing/${name}.json`)
+    const importMeta = import(`../routes/assets/thing/${name}.json`)
     // const thing = meta.then(v => import(`../assets/thing/${v.levels[level].src}.png`))
 
     const spawnThing = () => {
@@ -25,6 +25,6 @@
         Loading...
     {:then meta}
         <!-- svelte-ignore a11y-missing-attribute -->
-        <img src='src/assets/thing/{meta?.levels?.[level]?.src}.png' class='w-8 scale-crisp' on:click={spawnThing}>
+        <img src='src/routes/assets/thing/{meta?.levels?.[level]?.src}.png' class='w-8 scale-crisp' on:click={spawnThing}>
     {/await}
 </span>

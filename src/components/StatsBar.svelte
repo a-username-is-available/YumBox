@@ -1,8 +1,8 @@
 <script lang='ts'>
-    import coin from '../assets/coin.png'
-    import credit from '../assets/credit.png'
-    import inv from '../assets/inv.png'
-    import shop from '../assets/shop.png'
+    import coin from '../routes/assets/coin.png'
+    import credit from '../routes/assets/credit.png'
+    import inv from '../routes/assets/inv.png'
+    import shop from '../routes/assets/shop.png'
 
     import StatSection from './StatSection.svelte'
     import StatPanel from './Panel.svelte'
