@@ -1,0 +1,10 @@
+{
+    "description": "Some rocks, 5 coins per minute",
+    "levels": [
+        {
+            "cost": 30,
+            "earnings": 5,
+            "src": "rock/pebbles"
+        }
+    ]
+}

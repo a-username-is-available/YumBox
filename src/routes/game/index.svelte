@@ -32,7 +32,7 @@
         const { cost } = thing.levels[0]
         if ($coins - cost < 0) return
         $coins -= cost
-        $inventory.push({ name, level: 0 })
+        $inventory.push({ name, level: 0, id: Math.random() })
     }
 </script>
 
@@ -74,7 +74,7 @@
                 {#each $inventory as item}
                     <span class='w-8 h-8'>
                         <InvPanel>
-                            <InvThing name={item.name} level={item.level} on:place={forward}/>
+                            <InvThing {...item} on:place={forward}/>
                         </InvPanel>
                     </span>
                 {/each}

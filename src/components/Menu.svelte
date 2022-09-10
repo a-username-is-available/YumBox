@@ -4,9 +4,10 @@
     import { mx, my } from '../services/util'
     import { onDestroy } from 'svelte'
     import type { ThingResult } from '../services/things'
+
     const dispatch: (msg: ThingResult, details?: object) => void = createEventDispatcher()
 
-    const mousePosToCoord = (val: number) => Math.ceil(val / 32)
+    const mousePosToCoord = (val: number) => Math.ceil(val / 32) - 1
 
     let interval: NodeJS.Timer | undefined
 

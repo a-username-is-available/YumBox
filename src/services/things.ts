@@ -18,9 +18,10 @@ export type ThingResult = 'move'
 export type InvThing = {
     name: string
     level: number
+    id: number
 }
 
-export const inventory: Writable<InvThing[]> = writable([{name: 'grass', level: 0}, {name: 'grass', level: 0},{name: 'grass', level: 0}])
+export const inventory: Writable<InvThing[]> = writable([{name: 'grass', level: 0, id: Math.random()}])
 
 export interface ThingData {
     description: string

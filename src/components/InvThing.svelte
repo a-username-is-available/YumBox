@@ -5,24 +5,26 @@
     const dispatch = createEventDispatcher()
 
     export let name: string,
-               level: number
-    const meta = import(`../assets/thing/${name}.json`)
-    const thing = meta.then(v => import(`../assets/thing/${v.levels[level].src}.png`))
+               level: number,
+               id: number
+    const importMeta = import(`../assets/thing/${name}.json`)
+    // const thing = meta.then(v => import(`../assets/thing/${v.levels[level].src}.png`))
 
     const spawnThing = () => {
-        // we don't need to know which element exactly it is
-        const indexOfThisElement = $inventory.findIndex(e => e.name === name && e.level === level)
+        const indexOfThisElement = $inventory.findIndex(e => e.id === id)
 
         const removedElement = $inventory.splice(indexOfThisElement, 1)
-        $inventory = $inventory
+        setTimeout(() => $inventory = $inventory, 0)
 
         dispatch('place', removedElement)
     }
 </script>
 
 <span>
-    {#await thing then thingImg}
+    {#await importMeta} 
+        Loading...
+    {:then meta}
         <!-- svelte-ignore a11y-missing-attribute -->
-        <img src={thingImg.default} class='w-8 scale-crisp' on:click={spawnThing}>
+        <img src='src/assets/thing/{meta?.levels?.[level]?.src}.png' class='w-8 scale-crisp' on:click={spawnThing}>
     {/await}
 </span>
