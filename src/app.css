@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-p, h1, h2, h3, h4, h5, h6, input, i, b, strong, small, blockquote, sub, sup, span {
+/* p, h1, h2, h3, h4, h5, h6, input, i, b, strong, small, blockquote, sub, sup, span {
     font-family: 'JetBrains Mono', consolas, monospace;
-}
+} */
 
 .scale-crisp {
     image-rendering: -moz-crisp-edges;
