@@ -14,6 +14,7 @@ export const things: Writable<Thing[]> = writable([]) // could do the array of a
 
 export type ThingResult = 'move'
                         | 'delete'
+                        | 'lvlup'
 
 export type InvThing = {
     name: string

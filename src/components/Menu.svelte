@@ -13,6 +13,7 @@
 
     const move = () => interval = setInterval(() => dispatch('move', { x: mousePosToCoord($mx), y: mousePosToCoord($my) - 1 }), 100)
     const del = () => dispatch('delete')
+    const lvlup = () => dispatch('lvlup')
 
     function confirmMove() {
         clearInterval(interval ?? undefined)
@@ -34,7 +35,7 @@
         Move
     </button>
 
-    <button class='flex gap-1'>
+    <button class='flex gap-1' on:click={lvlup}>
         <span class='material-symbols-outlined'>Bar_Chart</span>
         Lv. Up
     </button>

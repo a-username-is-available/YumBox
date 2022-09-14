@@ -1,12 +1,13 @@
 <script lang='ts'>
     import Menu from './Menu.svelte'
-    import { things } from '../services/things'
+    import { things, thingData } from '../services/things'
+    import { coins } from '../services/stats'
 
     export let x: number,
                y: number,
                name: string,
                level: number
-    let importMeta = import(`../assets/thing/${name}.json`)
+    let importMeta = thingData()
 
     let isMenuOpen = false
     const toggleMenu = () => isMenuOpen = !isMenuOpen
@@ -25,13 +26,24 @@
         $things.splice(indexOfThisElement, 1)
         $things = $things // tell svelte this need to be updated
     }
+
+    const lvlup = () => {
+        importMeta.then(meta => {
+            const cost = meta[name].levels?.[level + 1]?.cost
+            if (!cost) return alert(`There is no more levels left.`)
+            alert(`Buy for ${cost} coins?`)
+            const coinsAfter = $coins - cost
+            if (cost < 0) return alert(`You don't have enough coins!`)
+            console.log('canbuy')
+        })
+    }
 </script>
 
 <span style='grid-column: {x + 1}; grid-row: {y + 1}'>
     {#await importMeta}
         Loading...
     {:then meta}
-        <img src='src/assets/thing/{meta?.levels?.[level]?.src}.png' class='w-8 scale-crisp' alt='{name}: lvl. {level}' on:click={toggleMenu}>
+        <img src='src/assets/thing/{meta?.[name]?.levels?.[level]?.src}.png' class='w-8 scale-crisp' alt='{name}: lvl. {level}' on:click={toggleMenu}>
     {/await}
 </span>
 
@@ -39,6 +51,7 @@
 <!-- style='transform: translate({x * 32 + 5}px, {(y - 3) * 32}px);' -->
     <span style='transform: translate({(x - (x > 24 ? 3.5 : -1)) * 32}px, {(y - (y < 5 ? 0 : 2)) * 32}px);'>
         <Menu on:move={move}
-              on:delete={del}/>
+              on:delete={del}
+              on:lvlup={lvlup}/>
     </span>
 {/if}
