@@ -1,0 +1,15 @@
+{
+    "description": "Starts with some planks, slowly upgrading! Makes 5 coins per minute to start with",
+    "levels": [
+        {
+            "cost": 20,
+            "earnings": 5,
+            "src": "wall/planks"
+        },
+        {
+            "cost": 5,
+            "earnings": 7,
+            "src": "wall/bricks"
+        }
+    ]
+}

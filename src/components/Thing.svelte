@@ -28,13 +28,19 @@
     }
 
     const lvlup = () => {
+        isMenuOpen = false
         importMeta.then(meta => {
             const cost = meta[name].levels?.[level + 1]?.cost
-            if (!cost) return alert(`There is no more levels left.`)
-            alert(`Buy for ${cost} coins?`)
+            
+            if (!cost) return alert(`There are no more levels left.`)
             const coinsAfter = $coins - cost
-            if (cost < 0) return alert(`You don't have enough coins!`)
-            console.log('canbuy')
+            if (coinsAfter < 0) return alert(`You don't have enough coins!`)
+
+            alert(`Buy for ${cost} coins?`)
+            $coins = coinsAfter
+            const thisElement = $things.findIndex(e => e.x == x && e.y == y)
+            $things[thisElement].level = level + 1
+            level++
         })
     }
 </script>
