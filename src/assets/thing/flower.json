@@ -1,0 +1,20 @@
+{
+    "description": "What is this going to grow into? Gives 1 coin per minute to start with.",
+    "levels": [
+        {
+            "cost": 5,
+            "earnings": 1,
+            "src": "flower/seeds"
+        },
+        {
+            "cost": 2,
+            "earnings": 2,
+            "src": "flower/sprout"
+        },
+        {
+            "cost": 3,
+            "earnings": 2,
+            "src": "flower/sapling"
+        }
+    ]
+}

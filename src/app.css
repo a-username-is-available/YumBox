@@ -12,3 +12,7 @@
     image-rendering: pixelated;
     image-rendering: crisp-edges;
 }
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
