@@ -1,9 +1,9 @@
 import { derived, writable, type Writable } from "svelte/store"
 import { things, thingData } from "./things"
-import { bindStoreToLocalStorage } from "./util"
+import { bindStoreToLocalStorage, getStorage } from "./util"
 
-export const coins = writable(Number(localStorage.getItem('coins') ?? 5))
-export const credits = writable(Number(localStorage.getItem('credits') ?? 0))
+export const coins = writable(Number(getStorage('coins') || 5))
+export const credits = writable(Number(getStorage('credits') || 0))
 bindStoreToLocalStorage('coins', coins)
 bindStoreToLocalStorage('credits', credits)
 
