@@ -20,8 +20,8 @@
     const updateLocation = (e: { clientX: number; clientY: number; }) => [$mx, $my] = [e.clientX, e.clientY]
 
     const forward = (e: any) => {
-        for (let y = 0; y < 30; y++) {
-            for (let x = 0; x < 30; x++) {
+        for (let y = 0; y < 20; y++) {
+            for (let x = 0; x < 40; x++) {
                 const thing = $things.find(thing => thing.x === x && thing.y === y)
                 if (!thing) return $things = [...$things, { ...e.detail[0], x, y }]
             }  
