@@ -19,7 +19,7 @@
 <div class='p-1.5 bg-black text-black flex flex-row items-center text-sm gap-3 w-screen'>
     <span class="flex flex-row flex-grow gap-3">
         <StatSection>
-            <span class='font-bold text-primary'>YumBox Beta1.0</span>
+            <span class='font-bold text-primary'>YumBox 1.2.0-Beta</span>
         </StatSection>
         <StatSection>
             <img src={coin} alt="coin" class='scale-crisp h-5 w-5'>
