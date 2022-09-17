@@ -7,8 +7,7 @@
     export let name: string,
                level: number,
                id: number
-    const importMeta = import(`../assets/thing/${name}.json`)
-    // const thing = meta.then(v => import(`../assets/thing/${v.levels[level].src}.png`))
+    const importMeta = import(`../things/assets/${name}.json`)
 
     const spawnThing = () => {
         const indexOfThisElement = $inventory.findIndex(e => e.id === id)
@@ -25,6 +24,6 @@
         Loading...
     {:then meta}
         <!-- svelte-ignore a11y-missing-attribute -->
-        <img src='src/assets/thing/{meta?.levels?.[level]?.src}.png' class='w-8 scale-crisp' on:click={spawnThing}>
+        <img src='src/things/assets/{meta?.levels?.[level]?.src}.png' class='w-8 scale-crisp' on:click={spawnThing}>
     {/await}
 </span>

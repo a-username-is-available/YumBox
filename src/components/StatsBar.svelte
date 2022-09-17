@@ -1,9 +1,4 @@
 <script lang='ts'>
-    import coin from '../assets/coin.png'
-    import credit from '../assets/credit.png'
-    import inv from '../assets/inv.png'
-    import shop from '../assets/shop.png'
-
     import StatSection from './StatSection.svelte'
     import StatPanel from './Panel.svelte'
     
@@ -22,7 +17,7 @@
             <span class='font-bold text-primary'>YumBox 1.2.0-Beta</span>
         </StatSection>
         <StatSection>
-            <img src={coin} alt="coin" class='scale-crisp h-5 w-5'>
+            <img src='/assets/coin.png' alt="coin" class='scale-crisp h-5 w-5'>
             <StatPanel>Coins: {$coins}</StatPanel>
             <StatPanel>
                 Coins/Minute: 
@@ -35,16 +30,18 @@
         </StatSection>
         
         <StatSection>
-            <img src={credit} alt="credit" class='scale-crisp h-5 w-5'>
+            <img src='/assets/credit.png' alt="credit" class='scale-crisp h-5 w-5'>
             <StatPanel>Credits: {$credits}</StatPanel>
         </StatSection>
     </span>
 
     <StatSection>
-        <img on:click='{() => dispatch('showShop')}' class='h-8 w-8 bg-white rounded p-1 scale-crisp' src={shop} alt="shop">
+        <img on:click='{() => dispatch('showShop')}' class='h-8 w-8 bg-white rounded p-1 scale-crisp' 
+             src='/assets/shop.png' alt="shop">
     </StatSection>
 
     <StatSection>
-        <img on:click='{() => dispatch('showInventory')}' class='h-8 w-8 bg-white rounded p-1 scale-crisp' src={inv} alt="inventory">
+        <img on:click='{() => dispatch('showInventory')}' class='h-8 w-8 bg-white rounded p-1 scale-crisp' 
+             src='/assets/inv.png' alt="inventory">
     </StatSection>
 </div>

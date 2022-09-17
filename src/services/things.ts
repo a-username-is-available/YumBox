@@ -1,5 +1,5 @@
 import { writable, type Writable } from 'svelte/store'
-import thingsList from '../assets/things.json'
+import thingsList from '../things/things.json'
 
 export interface Thing {
     name: string
@@ -38,7 +38,7 @@ export const thingData = async () => {
     if (Object.keys(thingDataMemo).length > 0) return thingDataMemo
     
     for (let name of thingsList) {
-        thingDataMemo[name] = await import(`../assets/thing/${name}.json`)
+        thingDataMemo[name] = await import(`../things/assets/${name}.json`)
     }
  
     return thingDataMemo

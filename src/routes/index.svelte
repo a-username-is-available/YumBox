@@ -1,5 +1,5 @@
 <div class='h-screen w-screen bg-lime-300 flex justify-center flex-col'>
-    <img class='scale-crisp scale-50' src="/src/assets/logo.png" alt="Logo">
+    <img class='scale-crisp scale-50' src="/assets/logo.png" alt="Logo">
     <!--  left-50  -->
     <span class='absolute justify-self-center' style='transform: translate(50%, 100%)'>
         <p>Hi! Are you feeling down? Try this game and create the world you like.</p>
