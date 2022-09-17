@@ -38,7 +38,7 @@ export const thingData = async () => {
     if (Object.keys(thingDataMemo).length > 0) return thingDataMemo
     
     for (let name of thingsList) {
-        thingDataMemo[name] = await import(`../things/assets/${name}.json`)
+        thingDataMemo[name] = await import(`../things/pointers/${name}.json`)
     }
  
     return thingDataMemo

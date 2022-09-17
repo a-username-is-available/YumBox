@@ -49,7 +49,7 @@
     {#await importMeta}
         Loading...
     {:then meta}
-        <img src='src/things/assets/{meta?.[name]?.levels?.[level]?.src}.png' class='w-8 scale-crisp' alt='{name}: lvl. {level}' on:click={toggleMenu}>
+        <img src='/assets/things/{meta?.[name]?.levels?.[level]?.src}.png' class='w-8 scale-crisp' alt='{name}: lvl. {level}' on:click={toggleMenu}>
     {/await}
 
     {#if isMenuOpen}
