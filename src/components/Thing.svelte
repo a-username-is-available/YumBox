@@ -15,8 +15,13 @@
     const move = (e: CustomEvent<any>) => {
         const squareThing = $things.find(thing => thing.x === e.detail.x && thing.y === e.detail.y)
         if (squareThing) return
-        let thisThing = $things.find(thing => thing.x === x && thing.y === y)
-        if (thisThing) [thisThing.x, thisThing.y] = [e.detail.x, e.detail.y];
+
+        const thisThingIndex = $things.findIndex(thing => thing.x === x && thing.y === y)
+        // if (thisThing) [thisThing.x, thisThing.y] = [e.detail.x, e.detail.y]; <- cannot do this bc it won't trigger localStorage update
+        if (thisThingIndex !== -1) {
+            $things[thisThingIndex].x = e.detail.x
+            $things[thisThingIndex].y = e.detail.y
+        }
         [x, y] = [e.detail.x, e.detail.y]
     }
 
