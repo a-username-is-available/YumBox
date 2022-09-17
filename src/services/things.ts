@@ -1,5 +1,6 @@
 import { writable, type Writable } from 'svelte/store'
 import thingsList from '../things/things.json'
+import { bindStoreToLocalStorage } from './util'
 
 export interface Thing {
     name: string
@@ -8,9 +9,11 @@ export interface Thing {
     y: number
 }
 
-export const things: Writable<Thing[]> = writable([]) // could do the array of arrays thingy but im too lazy
-                                                      // someone please make a pr to fix this
-                                                      // the code will be so slowwwwww
+export const things: Writable<Thing[]> = 
+    writable(JSON.parse(localStorage.getItem('things') ?? '[]')) // could do the array of arrays thingy but im too lazy
+                                                                 // someone please make a pr to fix this
+                                                                 // the code will be so slowwwwww
+bindStoreToLocalStorage('things', things)
 
 export type ThingResult = 'move'
                         | 'delete'
@@ -22,7 +25,9 @@ export type InvThing = {
     id: number
 }
 
-export const inventory: Writable<InvThing[]> = writable([{name: 'grass', level: 0, id: Math.random()}])
+export const inventory: Writable<InvThing[]> = 
+    writable(JSON.parse(localStorage.getItem('inventory') ?? '[]'))
+bindStoreToLocalStorage('inventory', inventory)
 
 export interface ThingData {
     description: string
