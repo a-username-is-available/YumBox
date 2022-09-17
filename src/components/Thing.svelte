@@ -41,7 +41,7 @@
             const coinsAfter = $coins - cost
             if (coinsAfter < 0) return alert(`You don't have enough coins!`)
 
-            alert(`Buy for ${cost} coins?`)
+            confirm(`Buy for ${cost} coins?`)
             $coins = coinsAfter
             const thisElement = $things.findIndex(e => e.x == x && e.y == y)
             $things[thisElement].level = level + 1
