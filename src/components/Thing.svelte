@@ -51,13 +51,14 @@
     {:then meta}
         <img src='src/assets/thing/{meta?.[name]?.levels?.[level]?.src}.png' class='w-8 scale-crisp' alt='{name}: lvl. {level}' on:click={toggleMenu}>
     {/await}
-</span>
 
-{#if isMenuOpen}
-<!-- style='transform: translate({x * 32 + 5}px, {(y - 3) * 32}px);' -->
-    <span style='transform: translate({(x - (x > 24 ? 3 : -1)) * 32}px, {(y - (y < 5 ? 0 : 2)) * 32}px);'>
-        <Menu on:move={move}
-              on:delete={del}
-              on:lvlup={lvlup}/>
-    </span>
-{/if}
+    {#if isMenuOpen}
+              <!-- style='transform: translate({(x - (x > 24 ? 4 : -1)) * 32}px, {(y - (y < 5 ? 0 : 2)) * 32}px);'> -->
+        <span class='absolute'
+              style='transform: translate({(x > 24 ? -3 : 1) * 32}px, {(y < 5 ? -1 : -3) * 32}px);'>
+            <Menu on:move={move}
+                  on:delete={del}
+                  on:lvlup={lvlup}/>
+        </span>
+    {/if}
+</span>

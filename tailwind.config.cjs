@@ -17,10 +17,10 @@ module.exports = {
         'secondary-dark': '#a16207'
       },
       gridTemplateRows: {
-        '30': 'repeat(30, 32px)',
+        'default': 'repeat(20, 32px)',
       },
       gridTemplateColumns: {
-        '30': 'repeat(30, 32px)',
+        'default': 'repeat(40, 32px)',
       }
     },
     plugins: [],

@@ -83,7 +83,7 @@
     </Overlay>
 {/if}
 
-<div class='bg-lime-300 h-screen w-screen grid grid-cols-30 grid-rows-30' on:mousemove={updateLocation}>
+<div class='bg-lime-300 h-screen w-screen grid grid-cols-default grid-rows-default' on:mousemove={updateLocation}>
     {#each $things as thing}
         <Thing {...thing}/>
     {/each}
