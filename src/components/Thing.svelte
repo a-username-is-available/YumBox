@@ -39,7 +39,7 @@
             
             if (!cost) return alert(`There are no more levels left.`)
             const coinsAfter = $coins - cost
-            if (coinsAfter < 0) return alert(`You don't have enough coins!`)
+            if (coinsAfter < 0) return alert(`You don't have enough coins! You need ${cost} to buy it.`)
 
             if (!confirm(`Buy for ${cost} coins?`)) return
             $coins = coinsAfter
