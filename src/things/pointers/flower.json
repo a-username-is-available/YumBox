@@ -15,6 +15,11 @@
             "cost": 10,
             "earnings": 5,
             "src": "flower/sapling"
+        },
+        {
+            "cost": 15,
+            "earnings": 8,
+            "src": "flower/rose"
         }
     ]
 }
