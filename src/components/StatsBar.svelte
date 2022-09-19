@@ -3,7 +3,7 @@
     import StatPanel from './Panel.svelte'
     
     import { createEventDispatcher } from 'svelte'
-    import { coins, credits, coinsPerMinute } from '../services/stats'
+    import { coins, coinsPerMinute } from '../services/stats'
     import { onDestroy } from 'svelte'
 
     const dispatch = createEventDispatcher()
@@ -14,7 +14,7 @@
 <div class='p-1.5 bg-black text-black flex flex-row items-center text-sm gap-3 w-screen'>
     <span class="flex flex-row flex-grow gap-3">
         <StatSection>
-            <span class='font-bold text-primary'>YumBox 1.2.0-Beta</span>
+            <span class='font-bold text-primary'>YumBox Release 1.0.0</span>
         </StatSection>
         <StatSection>
             <img src='/assets/coin.png' alt="coin" class='scale-crisp h-5 w-5'>
@@ -29,10 +29,10 @@
             </StatPanel>
         </StatSection>
         
-        <StatSection>
+        <!-- <StatSection>
             <img src='/assets/credit.png' alt="credit" class='scale-crisp h-5 w-5'>
             <StatPanel>Credits: {$credits}</StatPanel>
-        </StatSection>
+        </StatSection> -->
     </span>
 
     <StatSection>

@@ -1,0 +1,10 @@
+{
+    "description": "The crystal that shows the completion of the game.",
+    "levels": [
+        {
+            "cost": 100000,
+            "earnings": 1000,
+            "src": "crystal/power-crystal"
+        }
+    ]
+}
