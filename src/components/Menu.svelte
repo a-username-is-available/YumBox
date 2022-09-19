@@ -11,7 +11,7 @@
 
     let interval: NodeJS.Timer | undefined
 
-    const move = () => interval = setInterval(() => dispatch('move', { x: mousePosToCoord($mx), y: mousePosToCoord($my) - 1 }), 100)
+    const move = () => interval = setInterval(() => dispatch('move', { x: mousePosToCoord($mx), y: mousePosToCoord($my) - 1 }), 50)
     const del = () => dispatch('delete')
     const lvlup = () => dispatch('lvlup')
 
