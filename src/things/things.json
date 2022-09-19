@@ -2,6 +2,8 @@
     "grass",
     "flower",
     "rock",
+    "water",
     "wall",
-    "window"
+    "window",
+    "door"
 ]

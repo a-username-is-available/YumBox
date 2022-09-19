@@ -19,12 +19,12 @@
         {
             "cost": 125,
             "earnings": 38,
-            "src": "wall/asphalt-bricks"
+            "src": "wall/concrete"
         },
         {
-            "cost": 100,
-            "earnings": 50,
-            "src": "wall/asphalt-bricks"
+            "cost": 150,
+            "earnings": 60,
+            "src": "wall/asphalt"
         }
     ]
 }

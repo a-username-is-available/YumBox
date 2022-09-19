@@ -1,30 +1,30 @@
 {
-    "description": "Starts with some old window, slowly upgrading! Makes 15 coins per minute to start with",
+    "description": "Starts with some old doors, slowly upgrading! Makes 15 coins per minute to start with",
     "levels": [
         {
             "cost": 150,
             "earnings": 15,
-            "src": "window/planks"
+            "src": "door/planks"
         },
         {
             "cost": 55,
             "earnings": 20,
-            "src": "window/bricks"
+            "src": "door/bricks"
         },
         {
             "cost": 110,
             "earnings": 30,
-            "src": "window/asphalt-bricks"
+            "src": "door/asphalt-bricks"
         },
         {
             "cost": 150,
             "earnings": 45,
-            "src": "window/concrete"
+            "src": "door/concrete"
         },
         {
             "cost": 200,
             "earnings": 65,
-            "src": "window/asphalt"
+            "src": "door/asphalt"
         }
     ]
 }

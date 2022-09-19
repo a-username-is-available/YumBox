@@ -1,0 +1,20 @@
+{
+    "description": "Starts with some planks, slowly upgrading! Makes 10 coins per minute to start with",
+    "levels": [
+        {
+            "cost": 50,
+            "earnings": 5,
+            "src": "water/water"
+        },
+        {
+            "cost": 40,
+            "earnings": 9,
+            "src": "water/lily"
+        },
+        {
+            "cost": 75,
+            "earnings": 17,
+            "src": "water/rock"
+        }
+    ]
+}
