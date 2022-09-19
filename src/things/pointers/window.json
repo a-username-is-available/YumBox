@@ -1,0 +1,20 @@
+{
+    "description": "Starts with some old window, slowly upgrading! Makes 15 coins per minute to start with",
+    "levels": [
+        {
+            "cost": 150,
+            "earnings": 15,
+            "src": "window/planks"
+        },
+        {
+            "cost": 55,
+            "earnings": 20,
+            "src": "window/bricks"
+        },
+        {
+            "cost": 110,
+            "earnings": 30,
+            "src": "window/asphalt-bricks"
+        }
+    ]
+}

@@ -1,15 +1,30 @@
 {
-    "description": "Starts with some planks, slowly upgrading! Makes 5 coins per minute to start with",
+    "description": "Starts with some planks, slowly upgrading! Makes 10 coins per minute to start with",
     "levels": [
         {
-            "cost": 20,
-            "earnings": 5,
+            "cost": 100,
+            "earnings": 10,
             "src": "wall/planks"
         },
         {
-            "cost": 5,
-            "earnings": 7,
+            "cost": 50,
+            "earnings": 15,
             "src": "wall/bricks"
+        },
+        {
+            "cost": 100,
+            "earnings": 25,
+            "src": "wall/asphalt-bricks"
+        },
+        {
+            "cost": 125,
+            "earnings": 38,
+            "src": "wall/asphalt-bricks"
+        },
+        {
+            "cost": 100,
+            "earnings": 50,
+            "src": "wall/asphalt-bricks"
         }
     ]
 }

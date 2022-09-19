@@ -2,7 +2,7 @@
     "description": "Just some grass, gives 1 coin per minute",
     "levels": [
         {
-            "cost": 3,
+            "cost": 10,
             "earnings": 1,
             "src": "grass/grass"
         }
