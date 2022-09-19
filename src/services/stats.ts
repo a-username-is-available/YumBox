@@ -1,4 +1,4 @@
-import { derived, writable, type Writable } from "svelte/store"
+import { derived, writable } from "svelte/store"
 import { things, thingData } from "./things"
 import { bindStoreToLocalStorage, getStorage } from "./util"
 
